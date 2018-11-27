@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route, Link } from 'react-router-dom'
-import Main from './Main'
+import Home from './Home'
 import Meetings from './Meetings'
 import AboutUs from './AboutUs'
 import Join from './Join'
@@ -29,7 +29,7 @@ import Login from './Login'
                 </div>
             </div>
             <div className="ui container">
-                <Route exact path="/" component={Main} />
+                <Route exact path="/" component={Home} />
                 <Route path="/meetings" component={Meetings}/>
                 <Route path="/aboutus" component={AboutUs}/>
             </div>
