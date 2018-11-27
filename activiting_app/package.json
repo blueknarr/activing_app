@@ -1,0 +1,16 @@
+{
+  "name": "activiting_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "node": "index.js"
+  },
+  "keywords": [],
+  "author": "Kevin Jeong",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
