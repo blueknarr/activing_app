@@ -1,19 +1,35 @@
-const users = require('./routes/users');
-const contents = require('./routes/contents');
 const mongoose = require('mongoose');
 const express = require('express');
+const passport = require('passport');
+const config = require('config');
+const cookieSession = require('cookie-session');
+
+const users = require('./routes/users');
+const contents = require('./routes/contents');
+const auth = require('./routes/auth');
 const app = express();
-const dbRoute = 'mongodb://activiting:test1234@ds147797.mlab.com:47797/activiting_app';
-//connect MongoDB
-mongoose.connect(dbRoute, {useNewUrlParser:true})
+require('./services/passport');
+/* connect MongoDB */
+mongoose.connect(config.DB.mongoURI, { useNewUrlParser:true })
 .then( () => { console.log('Connected to MongoDB') })
 .catch( (error) => { console.log(error) });
 
-/* Middlewares */
+app.use(
+    cookieSession({
+        name: 'MERN cookie',
+        maxAge: (30 * 24 * 60 * 60 * 1000),
+        keys: [config.cookieKey]
+    })
+)
+app.use(passport.initialize());
+app.use(passport.session());
+
+/* Routes */
 app.use(express.json());
+app.use('/auth/google',auth);
 app.use('/api/users',users);
 app.use('/api/contents',contents);
 
 /* Server */
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 app.listen(port, () => { console.log(`Listening on port ${port}`) });
