@@ -1,48 +1,43 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import "../css/Header.css";
 
 class Header extends Component {
-    renderLogin(){
-        switch(this.props.auth){
-            case null:
-                return <span>Loading</span>
-            case false:
-                return <a href="/auth/google">Login with GOOGLE</a>
-            default:
-                return <a href="/api/users/logout">Logout</a>            
-        }
+  renderLogin() {
+    switch (this.props.auth) {
+      case null:
+        return <span>Loading</span>;
+      case false:
+        return <a href="/auth/google">Login with GOOGLE</a>;
+      default:
+        return <a href="/api/users/logout">Logout</a>;
     }
+  }
 
   render() {
     console.log(this.props);
     return (
-        <div className="Header">
-            <nav>
-                <div className="nav-wrapper">
-                    <a href="#" className="left brand-logo">MERN</a>
-                    <Link
-                        to={this.props.auth ? '/dashboard' : '/' }
-                        className="left brand-logo"
-                    >
-                    MERN
-                    </Link>
-                
-                <ul className="right">
-                    <li>    
-                        {this.renderLogin()}
-                    </li>
-                </ul>
-                
-                </div>
-            </nav>
+      <article className="full-overlay">
+        <div className="container-fluid">
+            <a className="title-top" href="#">
+              <span id="aa">A</span>CTIVIT'ING
+            </a>
+            <Link
+              to={this.props.auth ? "/dashboard" : "/"}
+              className="left brand-logo"
+            />
+            <ul className="right">
+              <li>{this.renderLogin()}</li>
+            </ul>
         </div>
-    )
+      </article>
+    );
   }
 }
 
 const mapStateToProps = state => {
-    return { auth: state.auth }
-}
+  return { auth: state.auth };
+};
 
 export default connect(mapStateToProps)(Header);

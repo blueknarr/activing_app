@@ -1,0 +1,10 @@
+.carousel {
+    background-color: black;
+    height: 100%;
+}
+
+div > .imgslides {
+    display: block;
+    max-height: 100%;
+    height: auto;
+}

@@ -1,0 +1,16 @@
+.rows {
+    background-color: black; 
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    font-family: 'Scada', sans-serif;
+    height: 12vh;
+    
+}
+
+.rows > .nav > li > a {
+    text-decoration: none;
+    color: white;
+    
+}
