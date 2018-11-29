@@ -18,7 +18,7 @@ class Navigation extends Component {
             <Link to="/match">Today's Match</Link>
           </li>
           <li>
-            <Link to="/subs">Subscription</Link>
+            <Link to="/signup">SIGNUP</Link>
           </li>
           <li>
             <Link to="/dev">Dev Team</Link>
