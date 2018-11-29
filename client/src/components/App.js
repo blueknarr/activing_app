@@ -1,43 +1,35 @@
 import React, { Component } from 'react'
-import { BrowserRouter, Route, Link } from 'react-router-dom'
-import Home from './Home'
-import Meetings from './Meetings'
-import AboutUs from './AboutUs'
-import Join from './Join'
-import Login from './Login'
+import { BrowserRouter, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
+import Header from './Header'
+import Landing from './Landing'
+const Dashboard = () => <h2>Dashboard</h2>;
+const PostNew = () => <h2>New Post</h2>;
 
- class App extends Component {
+
+class App extends Component {
+    componentDidMount(){
+        this.props.fetchUser();
+    }
+
   render() {
+    console.log(actions);
     return (
+      <div className="App">
         <BrowserRouter>
-        <div>
-            <div className="ui container">Header</div>
-            <div className="ui container">
-                <div className="ui menu">
-                    <div className="header item">
-                        Activiting
-                    </div>
-                    <a className="item">
-                        <Link to="/">홈</Link>
-                    </a>
-                    <a className="item">
-                        <Link to="/meetings">모임</Link>
-                    </a>
-                    <a className="item">
-                        <Link to="/aboutus">About Us</Link>
-                    </a>
-                </div>
+            <div>
+                <Header />
+            <div className="container">
+                <Route exact path="/" component={Landing} />
+                <Route exact path="/dashboard" component={Dashboard} />
+                <Route exact path="/posts/new" component={PostNew} />    
             </div>
-            <div className="ui container">
-                <Route exact path="/" component={Home} />
-                <Route path="/meetings" component={Meetings}/>
-                <Route path="/aboutus" component={AboutUs}/>
-            </div>
-            <div className="ui container">footer</div>
-        </div>
+            </div>    
         </BrowserRouter>
+      </div>
     )
   }
 }
 
-export default App;
+export default connect(null, actions)(App);
