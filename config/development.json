@@ -1,13 +1,13 @@
 {
-    "name":"MERN-DEV",
-    "DB" : {
-        "mongoURI": "mongodb://localhost/mern-dev"
+    "name": "MERN-DEV",
+    "DB": {
+        "mongoURI": "mongodb://localhost/mern-app-dev"
     },
-    "auth":{
-        "google":{
-            "clientID":"471148344582-fdqeqgrnd9r5tam1emojl7han8g15tkl.apps.googleusercontent.com",
-            "clientSecret":"_DSkGk_r5StLQLfRkPkUw0Z-"
+    "auth": {
+        "google": {
+            "clientID": "406274113917-j1fqrf0p1r6ch1cn2523vldu13bokp8e.apps.googleusercontent.com",
+            "clientSecret": "967A3G8pWIk7j5s9cfYpWWU0"
         }
     },
-    "cookieKey":"showmethemoney"
+    "cookieKey": "iwannadrinkfuckingicedamericano"
 }

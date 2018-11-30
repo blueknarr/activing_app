@@ -11,7 +11,7 @@ class Header extends Component {
       case false:
         return <a href="/auth/google">Login with GOOGLE</a>;
       default:
-        return <a href="/api/users/logout">Logout</a>;
+        return <p>{this.props.auth.googleID}님, 환영합니다.   <a href="/api/users/logout"> Logout</a></p>;
     }
   }
 
@@ -27,6 +27,7 @@ class Header extends Component {
               to={this.props.auth ? "/dashboard" : "/"}
               className="left brand-logo"
             />
+            
             <ul className="right">
               <li>{this.renderLogin()}</li>
             </ul>

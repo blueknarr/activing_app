@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Link} from 'react-router-dom';
 import "../css/Login.css";
 
 class Login extends Component {
@@ -13,17 +14,18 @@ class Login extends Component {
                   <div className="ui form">
                     <div className="field">
                       <label>Email</label>
-                      <div className="ui left icon input">
+                      <div className="ui left icon inverted transparent input">
                         <input
                           type="text"
                           placeholder="이메일 주소를 입력하세요."
+                          autoFocus={true}
                         />
                         <i className="user icon" />
                       </div>
                     </div>
                     <div className="field">
                       <label>Password</label>
-                      <div className="ui left icon input">
+                      <div className="ui left icon inverted transparent input">
                         <input
                           type="password"
                           placeholder="패스워드를 입력하세요."
@@ -37,10 +39,10 @@ class Login extends Component {
                   </div>
                 </div>
                 <div className="middle aligned column">
-                  <div className="ui big button inverted violet">
+                <Link to="/signup"><div className="ui big button inverted violet">
                     <i className="signup icon" />
                     없다면, 가입하기!
-                  </div>
+                  </div></Link>
                 </div>
               </div>
               <div className="ui vertical divider" />

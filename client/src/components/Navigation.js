@@ -18,12 +18,6 @@ class Navigation extends Component {
             <Link to="/match">Today's Match</Link>
           </li>
           <li>
-            <Link to="/login">LOGIN</Link>
-          </li>
-          <li>
-            <Link to="/signup">SIGNUP</Link>
-          </li>
-          <li>
             <Link to="/dev">Dev Team</Link>
           </li>
         </ul>

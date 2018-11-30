@@ -8,7 +8,7 @@ class Signup extends Component {
       <div className="body-full">
       <div className="ui inverted segment signup column">
         <form className="ui form">
-          <h4 className="ui dividing middle header"> ACTIVIT'ING 회원 가입</h4>
+          <h4 className="ui dividing middle header"> <span id="signupact">A</span>CTIVIT'ING 회원 가입</h4>
           <div className="field">
             <label>이메일</label>
             <div className="field ui inverted transparent input">
@@ -16,6 +16,7 @@ class Signup extends Component {
                 type="email"
                 name="email"
                 placeholder="이메일을 입력하세요."
+                autoFocus={true}
               />
             </div>
           </div>

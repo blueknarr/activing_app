@@ -24,8 +24,8 @@
 .ui.inverted.segment {
     font-family: "Scada", sans-serif;
     position: relative;
-    margin-left: 5vw;
-    margin-right: 5vw;
+    margin-left: 7vw;
+    margin-right: 7vw;
     z-index: 1;
 }
 
@@ -44,4 +44,8 @@
 .ui.form .field .ui.input input, .ui.form .fields .field .ui.input input {
     width: auto;
     color: white;
+}
+
+#signupact {
+    color: red;
 }
