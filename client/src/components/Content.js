@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 
-import { Club, Main, Signup } from "../pages";
+import { Club, Main, Signup, CreateClub } from "../pages";
 import Login from "../pages/Login";
 
 export default class Content extends Component {
@@ -9,10 +9,10 @@ export default class Content extends Component {
     return (
       <Switch>
         <Route exact path="/" component={Main} />
-        <Route exact path="/club" component={Club} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={Signup} />
-        {/* <Route exact path="/" component={PostNew} /> */}
+        <Route path="/club" component={Club} />
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={Signup} />
+        <Route path="/createclub" component={CreateClub} />
       </Switch>
     );
   }
