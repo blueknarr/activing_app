@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import Content from "../components/Content";
+import { register } from '../actions/content.js'
 import Tags from "./Tags";
 import "../css/Signup.css";
 
@@ -18,11 +18,13 @@ class CreateClub extends Component {
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]:value });
+    
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state);
+    const { dispatch } = this.props;
+    dispatch(register(this.state));
   }
 
   render() {
@@ -109,7 +111,7 @@ class CreateClub extends Component {
   }
 }
 const mapStateToProps = state => {
-    return { regContent: state.regContent };
+    return { content: state.content };
   };
   
 export default connect(mapStateToProps)(CreateClub);

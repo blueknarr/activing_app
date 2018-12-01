@@ -4,7 +4,7 @@ import { combineReducers } from 'redux';
 
 const reducers = combineReducers({
     auth: authReducer,
-    regContenr: regContentReducer
+    regContent: regContentReducer
 });
 
 export default reducers;

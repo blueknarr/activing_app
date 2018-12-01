@@ -5,7 +5,7 @@ const config = require('config');
 const cookieSession = require('cookie-session');
 
 const users = require('./routes/users');
-const contents = require('./routes/contents');
+const content = require('./routes/content');
 const auth = require('./routes/auth');
 const app = express();
 require('./services/passport');
@@ -28,7 +28,7 @@ app.use(passport.session());
 app.use(express.json());
 app.use('/auth/google',auth);
 app.use('/api/users',users);
-app.use('/api/contents',contents);
+app.use('/reg/content',content);
 
 /* Server */
 const port = process.env.PORT || 5000;
