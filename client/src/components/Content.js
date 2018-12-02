@@ -3,6 +3,8 @@ import { Switch, Route } from "react-router-dom";
 
 import { Club, Main, Signup, CreateClub } from "../pages";
 import Login from "../pages/Login";
+import Mypage from "../pages/Mypage";
+
 
 export default class Content extends Component {
   render() {
