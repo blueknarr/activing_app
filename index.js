@@ -8,6 +8,7 @@ const users = require('./routes/users');
 const content = require('./routes/content');
 const auth = require('./routes/auth');
 const app = express();
+
 require('./services/passport');
 /* connect MongoDB */
 const db = 'mongodb://activiting:test1234@ds147797.mlab.com:47797/activiting_app'
@@ -30,6 +31,7 @@ app.use(express.json());
 app.use('/auth/google',auth);
 app.use('/api/users',users);
 app.use('/reg/content',content);
+app.use('./reg/user', users)
 
 /* Server */
 const port = process.env.PORT || 5000;
