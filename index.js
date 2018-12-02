@@ -10,7 +10,8 @@ const auth = require('./routes/auth');
 const app = express();
 require('./services/passport');
 /* connect MongoDB */
-mongoose.connect(config.DB.mongoURI, { useNewUrlParser:true })
+const db = 'mongodb://activiting:test1234@ds147797.mlab.com:47797/activiting_app'
+mongoose.connect('mongodb://localhost/test', { useNewUrlParser:true })
 .then( () => { console.log('Connected to MongoDB') })
 .catch( (error) => { console.log(error) });
 
