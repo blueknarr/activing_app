@@ -97,7 +97,8 @@ class CreateClub extends Component {
               </div>
 
               <div className="form-group">모임개설</div>
-              <button className="ui inverted purple button" tabindex="0">
+              
+              <button className="ui inverted purple button">
                 등록
               </button>
               <Link to="/club" className="ui inverted purple button">

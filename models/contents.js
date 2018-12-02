@@ -1,47 +1,34 @@
-const joi = require('joi');
+const Joi = require('joi');
 const mongoose = require('mongoose');
 
 /* Model */
 const contentSchema = new mongoose.Schema({
     title:{
-        type:String,
-        require:true,
-        minlength:2
-    },
-    master:{
-        type:String,
-        require:true
-    },
-    place:{
-        type:String,
-        require:true
+        type:String
     },
     date:{
         type:String
     },
-    pic:{
+    cost:{
         type:String
     },
-    content:{
-        type:String,
-        require:true
-    },
-    totalParticipants:{
-        type:Number,
-        require:true
-    },
-    participants:{
+    people:{
         type:String
     },
+    tag:[]
 });
 
 const Content = mongoose.model('Content',contentSchema);
 
 function validateContent(content){
     const schema = {
-
+        title: Joi.string(),
+        date: Joi.string(),
+        cost: Joi.string(),
+        people: Joi.string(),
+        tag: Joi.array()
     }
-    return joi.validate(content,schema);
+    return Joi.validate(content,schema);
 }
 
 exports.Content = Content;

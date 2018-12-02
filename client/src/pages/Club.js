@@ -8,22 +8,26 @@ const masonryOptions = {
  
 const imagesLoadedOptions = { background: '.my-bg-image-el' }
 
-export default class Club extends Component {
+class Club extends Component {
   
   render() {
     return (
       <div>
+          {this.createClub()}
           {this.contentList()}
       </div>
     )
   }
-
+  createClub(){
+    return(
+      <div>
+          <Link to ="/CreateClub" className="btn btn-primary btn-link">모임개설</Link>
+      </div>
+    )
+  }
   contentList() {
     return (
-      <div>
-        <div>
-          <Link to ="/CreateClub" className="btn btn-primary btn-link">모임개설</Link>
-        </div>
+      <div>  
         <Masonry
             className={'my-gallery-class'} // default ''
             elementType={'ul'} // default 'div'
@@ -51,3 +55,5 @@ export default class Club extends Component {
     )
   }
 }
+
+export default Club;
