@@ -30,7 +30,13 @@ class Tags extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
     this.handleAddition = this.handleAddition.bind(this);
     this.handleDrag = this.handleDrag.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
+
+  handleChange (tags) {
+    const { name, value } = this.state;
+    this.setState({ [name]: value });
+  };
 
   handleDelete(i) {
     const { tags } = this.state;
@@ -67,6 +73,10 @@ class Tags extends React.Component {
           handleDrag={this.handleDrag}
           delimiters={delimiters}
           autofocus={false}
+          className="form-control"
+          name="tags"
+          value={this.state.tags}
+          onChange={this.handleChange}
         />
       </div>
     );
