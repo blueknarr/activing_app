@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Masonry from 'react-masonry-component';
+import '../css/Club.css';
 
 const masonryOptions = {
     transitionDuration: 0
@@ -12,16 +13,18 @@ class Club extends Component {
   
   render() {
     return (
-      <div>
+      <div className="body-full">
+      <div className="ui inverted segment signup column">
           {this.createClub()}
           {this.contentList()}
+          </div>
       </div>
     )
   }
   createClub(){
     return(
-      <div>
-          <Link to ="/CreateClub" className="btn btn-primary btn-link">모임개설</Link>
+      <div className="mkgclub">
+          <Link to ="/CreateClub" className="btn btn-primary btn-link ui inverted purple button">모임개설</Link>
       </div>
     )
   }

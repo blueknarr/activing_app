@@ -1,0 +1,8 @@
+.btn-link, .btn-link:active, .btn-link:focus, .btn-link:hover {
+    text-decoration: none;
+    color: white;
+}
+div.mkgclub {
+    display: flex;
+    justify-content: flex-end;
+}
