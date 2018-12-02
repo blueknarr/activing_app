@@ -30,7 +30,7 @@ app.use(express.json());
 app.use('/auth/google',auth);
 app.use('/api/users',users);
 app.use('/reg/content',content);
-
+app.use('/api/content',content);
 /* Server */
 const port = process.env.PORT || 5000;
 app.listen(port, () => { console.log(`Listening on port ${port}`) });

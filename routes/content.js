@@ -2,8 +2,10 @@ const { Content, validate } = require('../models/contents');
 const express = require('express');
 const router = express.Router();
 
-router.get('/', async(req, res) => {
-    console.log('router content in');
+router.get('/get', async (req, res) => {
+    console.log('request content in');
+    const contents = await Content.find().sort('title');
+    res.send(contents);
 });
 
 router.post('/',async(req, res) => {
