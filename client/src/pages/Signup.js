@@ -64,7 +64,16 @@ class Signup extends Component {
               />
             </div>
           </div>
-
+          <div className="two fields">
+            <div className="field">
+              <label>성별</label>
+              <select className="ui fluid dropdown">
+                <option value="">성별</option>
+                <option value="SL">남자</option>
+                <option value="PS">여자</option>
+              </select>
+            </div>
+          </div>
           <div className="two fields">
             <div className="field">
               <label>태어난 해</label>
@@ -145,10 +154,10 @@ class Signup extends Component {
             </div>
           </div>
 
-          <div className="field">
+          <div className="field tags">
             <label>관심사</label>
             <Tags />
-            <p>최대 8개 까지 입력이 가능합니다.</p>
+            <p>Back space 키로 삭제가 가능하고, 최대 8개 까지 입력이 가능합니다.</p>
           </div>
 
           <div className="ui segment">

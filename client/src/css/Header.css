@@ -57,6 +57,8 @@ a {
     color: grey;
 }
 
-a::after {
-    color: purple;
+
+
+p {
+    text-align: right;
 }

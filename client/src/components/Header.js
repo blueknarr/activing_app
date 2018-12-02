@@ -11,7 +11,7 @@ class Header extends Component {
       case false:
         return <a href="/auth/google">Login with GOOGLE</a>;
       default:
-        return <p>{this.props.auth.googleID}님, 환영합니다.   <a href="/api/users/logout"> Logout</a></p>;
+        return <p>{this.props.auth.googleID}님, 환영합니다. <br/> <a href="/mypage">MyPage</a><br/> <a href="/api/users/logout"> Logout</a> </p>;
     }
   }
 
@@ -20,11 +20,11 @@ class Header extends Component {
     return (
       <article className="full-overlay">
         <div className="container-fluid">
-            <a className="title-top" href="#">
+            <a className="title-top" href="/">
               <span id="aa">A</span>CTIVIT'ING
             </a>
             <Link
-              to={this.props.auth ? "/dashboard" : "/"}
+              to={this.props.auth ? "/" : "/"}
               className="left brand-logo"
             />
             
