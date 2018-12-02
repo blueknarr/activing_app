@@ -9,7 +9,7 @@ class Header extends Component {
       case null:
         return <span>Loading</span>;
       case false:
-        return <a href="/auth/google">Login with GOOGLE</a>;
+        return <p><a href="/auth/google">Login with GOOGLE</a> <br/> <a href="/signup">Signup</a> </p>;
       default:
         return <p>{this.props.auth.googleID}님, 환영합니다. <br/> <a href="/mypage">MyPage</a><br/> <a href="/api/users/logout"> Logout</a> </p>;
     }
