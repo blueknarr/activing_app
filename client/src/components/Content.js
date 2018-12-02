@@ -13,6 +13,7 @@ export default class Content extends Component {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/createclub" component={CreateClub} />
+        <Route exact path="/mypage" component={Mypage} />
       </Switch>
     );
   }

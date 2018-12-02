@@ -8,7 +8,7 @@ class Signup extends Component {
       <div className="body-full">
       <div className="ui inverted segment signup column">
         <form className="ui form">
-          <h4 className="ui dividing middle header"> ACTIVIT'ING 회원 가입</h4>
+          <h4 className="ui dividing middle header"> <span id="signupact">A</span>CTIVIT'ING 회원 가입</h4>
           <div className="field">
             <label>이메일</label>
             <div className="field ui inverted transparent input">
@@ -16,6 +16,7 @@ class Signup extends Component {
                 type="email"
                 name="email"
                 placeholder="이메일을 입력하세요."
+                autoFocus={true}
               />
             </div>
           </div>
@@ -63,7 +64,16 @@ class Signup extends Component {
               />
             </div>
           </div>
-
+          <div className="two fields">
+            <div className="field">
+              <label>성별</label>
+              <select className="ui fluid dropdown">
+                <option value="">성별</option>
+                <option value="SL">남자</option>
+                <option value="PS">여자</option>
+              </select>
+            </div>
+          </div>
           <div className="two fields">
             <div className="field">
               <label>태어난 해</label>
@@ -144,10 +154,10 @@ class Signup extends Component {
             </div>
           </div>
 
-          <div className="field">
+          <div className="field tags">
             <label>관심사</label>
             <Tags />
-            <p>최대 8개 까지 입력이 가능합니다.</p>
+            <p>Back space 키로 삭제가 가능하고, 최대 8개 까지 입력이 가능합니다.</p>
           </div>
 
           <div className="ui segment">

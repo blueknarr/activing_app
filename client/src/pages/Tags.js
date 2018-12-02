@@ -60,11 +60,13 @@ class Tags extends React.Component {
       <div>
         <ReactTags
           tags={tags}
+          placeholder="취미 태그를 입력해보세요."
           suggestions={suggestions}
           handleDelete={this.handleDelete}
           handleAddition={this.handleAddition}
           handleDrag={this.handleDrag}
           delimiters={delimiters}
+          autofocus={false}
         />
       </div>
     );

@@ -3,14 +3,14 @@
     padding: 40px;
     background-image: url('../img/top.png');
     background-size: cover;
-    z-index: -1;
+    z-index: 0;
 }
 
 .full-overlay:after{
     position: absolute;
     display: block;
     content: "";
-    z-index: 0;
+    z-index: -1;
     top: 0;
     left: 0;
     width: 100%;
@@ -50,4 +50,15 @@
 
 ul {
     list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: grey;
+}
+
+
+
+p {
+    text-align: right;
 }

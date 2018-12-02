@@ -21,32 +21,10 @@
     background: rgba(0, 0, 0, 0.4);
   }
 
-.ui.inverted.segment {
+  .ui.inverted.segment {
     font-family: "Scada", sans-serif;
     position: relative;
     margin-left: 7vw;
     margin-right: 7vw;
     z-index: 1;
-}
-
-.ui.dividing.header {
-    color: white;
-}
-
-.ui.form .field > label {
-    color: white;
-}
-
-.ui.form .field .ui.input input, .ui.form .fields .field .ui.input input {
-    width: auto;
-    color: white;
-}
-
-#signupact {
-    color: red;
-}
-
-.field.tags > p {
-    text-align: left;
-
 }
