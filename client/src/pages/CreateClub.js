@@ -12,6 +12,8 @@ class CreateClub extends Component {
         date: "",
         cost: "",
         people: "",
+        place: "",
+        details:"",
         tag:[]
     };
   
@@ -35,7 +37,7 @@ class CreateClub extends Component {
             <h4 className="ui dividing middle header">모임 개설</h4>
             <form name="form" className="ui form" onSubmit={this.handleSubmit}>
               <div className="field form-group">
-                <label htmlFor="title">방장의 말</label>
+                <label htmlFor="title">모임명</label>
                 <div className="field ui inverted transparent input">
                   <input
                     type="text"
@@ -44,6 +46,20 @@ class CreateClub extends Component {
                     value={this.state.title}
                     onChange={this.handleChange}
                     placeholder="모임명을 입력하세요."
+                  />
+                </div>
+              </div>
+
+              <div className="field form-group">
+                <label htmlFor="place">장소</label>
+                <div className="field ui inverted transparent input">
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="place"
+                    value={this.state.place}
+                    onChange={this.handleChange}
+                    placeholder="모임 장소를 입력하세요."
                   />
                 </div>
               </div>
@@ -86,6 +102,20 @@ class CreateClub extends Component {
                     value={this.state.people}
                     onChange={this.handleChange}
                     placeholder="모임 인원을 입력하세요."
+                  />
+                </div>
+              </div>
+
+              <div className="field form-group">
+                <label htmlFor="details">모임 설명</label>
+                <div className="field ui inverted transparent input">
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="details"
+                    value={this.state.details}
+                    onChange={this.handleChange}
+                    placeholder="모임에 대해 입력하세요."
                   />
                 </div>
               </div>

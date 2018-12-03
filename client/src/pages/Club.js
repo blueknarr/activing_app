@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import ClubList from './ClubList'; 
 import axios from 'axios';
+import "../css/Club.css";
 
 class Club extends Component {
   state = {
@@ -24,9 +25,17 @@ class Club extends Component {
     return (
       <div>
           <div>
-            <div>내 일정에 맞는 모임을 만들고 싶다면?</div>
-          <Link to ="/createclub" className="btn btn-primary btn-block">모임개설 바로가기</Link>
+            <div className="outer">
+              <div className="height">
+                내 일정에 맞는 모임을 만들고 싶다면?
+              </div>
+    
+              <div className="height">
+                <Link to ="/createclub" className="btn btn-primary btn-block">모임개설 바로가기</Link>  
+              </div>
+             </div>
           </div>
+          <div className="blank-height"></div>
           <ClubList contents={this.state.contents} />
       </div>
     )

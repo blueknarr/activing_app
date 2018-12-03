@@ -15,6 +15,12 @@ const contentSchema = new mongoose.Schema({
     people:{
         type:String
     },
+    place:{
+        type:String
+    },
+    details:{
+        type:String
+    },
     tag:[]
 });
 
@@ -26,6 +32,8 @@ function validateContent(content){
         date: Joi.string(),
         cost: Joi.string(),
         people: Joi.string(),
+        place: Joi.string(),
+        details: Joi.string(),
         tag: Joi.array()
     }
     return Joi.validate(content,schema);
