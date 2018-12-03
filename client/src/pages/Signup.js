@@ -241,15 +241,11 @@ class Signup extends Component {
                 </div>
               </div>
             </div>
-            <div
-              className="ui inverted purple button form-control"
-              tabIndex="0"
-              name="submit"
-              value={this.state}
-              onChange={this.handleSubmit}
+            <button
+              className="ui inverted purple button"
             >
               회원가입
-            </div>
+            </button>
           </form>
         </div>
       </div>
