@@ -19,9 +19,8 @@ router.post('/',async(req, res) => {
     let content = new Content({ title, date, cost, people });
     content = await content.save();
     console.log('save to DB');
+    //browser로 간다
     res.redirect('/club');
-    res.send('hello');
-    //res.send('insert done');
 })
 
 module.exports = router;

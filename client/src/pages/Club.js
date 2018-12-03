@@ -5,7 +5,7 @@ import axios from 'axios';
 
 class Club extends Component {
   state = {
-    contens: []
+    contents: []
   }
   
   onSearchContent = async () => {
@@ -15,17 +15,19 @@ class Club extends Component {
     this.setState({ contents: response.data});
     console.log(this.state.contents);
   }
-  componentWillMount(){
+  componentWillMount = () => {
     this.onSearchContent();
   }
+
   render() {
     
     return (
       <div>
           <div>
-          <Link to ="/CreateClub" className="btn btn-primary btn-link">모임개설</Link>
+            <div>내 일정에 맞는 모임을 만들고 싶다면?</div>
+          <Link to ="/createclub" className="btn btn-primary btn-block">모임개설 바로가기</Link>
           </div>
-          <ClubList contents={this.state.contens} />
+          <ClubList contents={this.state.contents} />
       </div>
     )
   }

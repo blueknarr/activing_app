@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { register } from '../actions/content.js'
 import Tags from "./Tags";
@@ -97,10 +97,11 @@ class CreateClub extends Component {
               </div>
 
               <div className="form-group">모임개설</div>
-              
+                
               <button className="ui inverted purple button">
-                등록
-              </button>
+                  등록
+              </button> 
+              
               <Link to="/club" className="ui inverted purple button">
                 취소
               </Link>

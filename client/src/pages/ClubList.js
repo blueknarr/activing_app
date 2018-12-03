@@ -24,12 +24,21 @@ export default function ClubList(props) {
           <a href="#" className="thumbnail article">
               <img src="../img/test.png" alt=""/>
               <div className="caption">
+                <div>
                 <h3 className="article-header">
                   {content.title}
                 </h3>
-              <p className="source">
-                  {content.people}
-              </p>
+                </div>
+                <div>
+                <h4 className="article-header">
+                <span>모임인원: </span>{content.people}
+                </h4>
+                </div>
+                <div>
+                <h4 className="article-header">
+                  <span>날짜: </span>{content.date}
+                </h4>
+                </div>
               </div>
           </a>   
         </div>                
