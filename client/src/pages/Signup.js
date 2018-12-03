@@ -1,8 +1,16 @@
 import React, { Component } from "react";
 import Tags from "./Tags";
 import { connect } from "react-redux";
-import { register } from "../actions/content.js";
+import { register } from "../actions/user";
 import "../css/Signup.css";
+const crypto = require("crypto");
+
+function hash(password) {
+  return crypto
+    .createHmac("sha256", process.env.SECRET_KEY)
+    .update(password)
+    .digest("hex");
+}
 
 class Signup extends Component {
   state = {
@@ -28,7 +36,7 @@ class Signup extends Component {
   };
 
   render() {
-    console.log(this.state)
+    console.log(this.state);
     return (
       <div className="body-full">
         <div className="ui inverted segment signup column">
@@ -40,7 +48,7 @@ class Signup extends Component {
               <label>이메일</label>
               <div className="field ui inverted transparent input">
                 <input
-                className="form-control"
+                  className="form-control"
                   type="email"
                   value={this.state.email}
                   onChange={this.handleChange}
@@ -55,9 +63,9 @@ class Signup extends Component {
               <label>비밀번호</label>
               <div className="field ui inverted transparent input">
                 <input
-                className="form-control"
-                value={this.state.password}
-                onChange={this.handleChange}
+                  className="form-control"
+                  value={this.state.password}
+                  onChange={this.handleChange}
                   type="password"
                   name="password"
                   placeholder="비밀번호를 입력하세요."
@@ -80,9 +88,9 @@ class Signup extends Component {
               <label>이름</label>
               <div className="field ui inverted transparent input">
                 <input
-                className="form-control"
-                value={this.state.username}
-                onChange={this.handleChange}
+                  className="form-control"
+                  value={this.state.username}
+                  onChange={this.handleChange}
                   type="text"
                   name="username"
                   placeholder="이름을 입력하세요."
@@ -94,9 +102,9 @@ class Signup extends Component {
               <label>닉네임</label>
               <div className="field ui inverted transparent input">
                 <input
-                className="form-control"
-                value={this.state.nickname}
-                onChange={this.handleChange}
+                  className="form-control"
+                  value={this.state.nickname}
+                  onChange={this.handleChange}
                   type="text"
                   name="nickname"
                   placeholder="닉네임으로 타인에게 노출됩니다."
@@ -106,8 +114,12 @@ class Signup extends Component {
             <div className="two fields">
               <div className="field form-group">
                 <label>성별</label>
-                <select className="ui fluid dropdown form-control" name="sex" value={this.state.sex}
-                onChange={this.handleChange}>
+                <select
+                  className="ui fluid dropdown form-control"
+                  name="sex"
+                  value={this.state.sex}
+                  onChange={this.handleChange}
+                >
                   <option value="">성별</option>
                   <option value="m">남자</option>
                   <option value="f">여자</option>
@@ -117,10 +129,14 @@ class Signup extends Component {
             <div className="two fields">
               <div className="field form-group">
                 <label>태어난 해</label>
-                <select className="ui fluid dropdown form-control" name="born" value={this.state.born}
-                onChange={this.handleChange}>
+                <select
+                  className="ui fluid dropdown form-control"
+                  name="born"
+                  value={this.state.born}
+                  onChange={this.handleChange}
+                >
                   <option value="">년도</option>
-                  <option value='1980'>1980</option>
+                  <option value="1980">1980</option>
                   <option value="1981">1981</option>
                   <option value="1982">1982</option>
                   <option value="1983">1983</option>
@@ -147,10 +163,12 @@ class Signup extends Component {
             <div className="two fields">
               <div className="field form-group">
                 <label>지역</label>
-                <select className="ui fluid dropdown form-control"
-                name="region"
-                value={this.state.region}
-                onChange={this.handleChange}>
+                <select
+                  className="ui fluid dropdown form-control"
+                  name="region"
+                  value={this.state.region}
+                  onChange={this.handleChange}
+                >
                   <option value="">도시 목록</option>
                   <option value="SL">서울</option>
                   <option value="PS">부산</option>
@@ -223,11 +241,11 @@ class Signup extends Component {
                 </div>
               </div>
             </div>
-            <div className="ui inverted purple button form-control" tabIndex="0" name="submit"
-                value={this.state}
-                onChange={this.handleSubmit}>
+            <button
+              className="ui inverted purple button"
+            >
               회원가입
-            </div>
+            </button>
           </form>
         </div>
       </div>
@@ -235,4 +253,8 @@ class Signup extends Component {
   }
 }
 
-export default Signup;
+const mapStateToProps = state => {
+  return { user: state.user };
+};
+
+export default connect(mapStateToProps)(Signup);
