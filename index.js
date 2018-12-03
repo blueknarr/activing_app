@@ -8,6 +8,7 @@ const users = require('./routes/users');
 const content = require('./routes/content');
 const auth = require('./routes/auth');
 const app = express();
+
 require('./services/passport');
 /* connect MongoDB */
 const db = 'mongodb://activiting:test1234@ds147797.mlab.com:47797/activiting_app';
@@ -45,7 +46,6 @@ if (app.get('env') === 'production') {
       res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
     });
   }
-
 
 /* Server */
 const port = process.env.PORT || 5000;

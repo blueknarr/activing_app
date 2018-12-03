@@ -1,4 +1,24 @@
+const { User, validate } = require('../models/users');
 const router = require('express').Router();
+
+router.get('/', async(req, res) => {
+    console.log('router content in');
+});
+
+router.post('/',async(req, res) => {
+    //console.log(JSON.stringify(req.body));
+    //console.log(req.body.content);
+    const { googleID, email, name, password, username, nickname, sex, born, region, tags } = req.body.user;
+   
+ //    const { error } = validate(req.body);
+ //    if(error) return res.status(400).send(error.message);
+ 
+     let user = new User({ googleID, email, name, password, username, nickname, sex, born, region, tags});
+     user = await user.save();
+     console.log('save to DB');
+     res.redirect('/');
+     res.send('register completed');
+ })
 
 router.get('/current',(req, res) => {
     res.send(req.user);
@@ -6,62 +26,8 @@ router.get('/current',(req, res) => {
 
 router.get('/logout', (req, res) => {
     req.logout(); 
-    // res.send({
-    //     message: 'You signed out successfully',
-    //     user: req.user
-    // });
     res.redirect('/');
 });
 
 module.exports = router;
 
-// const { User } = require('../models/users');
-// const express = require('express');
-// const router = express.Router();
-
-// /* Routes */
-// // router.get('/', async(req, res) => {
-// //     const users = await User.find().sort('userId');
-// //     res.send(users);
-// // });
-
-// router.post('/', async(req, res) => {
-//     const { error } = validate(req.body);
-//     if(error) return res.status(400).send(error.message);
-
-//     let user = new User( {
-//         name: req.body.name,
-//         userId: req.body.userId,
-//         password: req.body.password,
-//         email: req.body.email,
-//         birth: req.body.birth,
-//         gender: req.body.gender,
-//         pic: req.body.pic
-//     });
-//     user = await user.save();
-//     res.send(user);
-// });
-
-// router.patch('/:id', async(req,res) => {
-//     const { error } = validate(req.body);
-//     if(error) return res.status(400).send(error.details[0].message);
-
-//     const user = await User.findById(req.params.id);
-//     if(!user) return res.status(400).send(`Can't find the ${req.params.id}`);
-
-//     user.email = req.body.email;
-//     user.pic = req.body.pic;
-
-//     const result = await user.save();
-//     if(!result) return req.status(400).send('Unable save to user');
-
-//     req.send(result);
-// });
-
-// router.delete('/:id', async(req,res) => {
-//     const user = await User.findByIdAndDelete(req.params.id);
-//     if(!user) return req.status(404).send(`Can't find the ${req.params.id}`);
-//     res.send(user);
-// });
-
-// module.exports = router;
