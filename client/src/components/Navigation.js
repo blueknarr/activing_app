@@ -13,7 +13,7 @@ class Navigation extends Component {
       case false:
         return <Link to='/login'>Login</Link>;
       default:
-        return <Link to='/mypage'>MyPage</Link>;
+        return <Link to='/signup'>MyPage</Link>;
     }
   }
 

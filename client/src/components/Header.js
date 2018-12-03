@@ -4,18 +4,34 @@ import { Link } from "react-router-dom";
 import "../css/Header.css";
 
 class Header extends Component {
+  state = {
+    email: '',
+    username: "",
+    nickname: "",
+    born: 0,
+    region: "",
+    tag: []
+  };
+
+  setName () {
+    if(this.state.username === '' && this.props.auth ) {
+      this.setState({ username: this.props.auth.username })
+    }
+  }
   renderLogin() {
     switch (this.props.auth) {
       case null:
         return <span>Loading</span>;
       case false:
-        return <p><a href="/auth/google">Login with GOOGLE</a> <br/> <a href="/signup">Signup</a> </p>;
+        return <p>Activiting에 가입해보세요!</p>;
       default:
-        return <p>{this.props.auth.googleID}님, 환영합니다. <br/> <a href="/mypage">MyPage</a><br/> <a href="/api/users/logout"> Logout</a> </p>;
+        return <p>{this.props.auth.username}님, 환영합니다. <br/> <a href="/api/users/logout"> Logout</a> </p>;
     }
   }
 
   render() {
+    this.setName();
+
     console.log(this.props);
     return (
       <article className="full-overlay">

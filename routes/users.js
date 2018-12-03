@@ -14,7 +14,7 @@ router.post('/',async(req, res) => {
  //    const { error } = validate(req.body);
  //    if(error) return res.status(400).send(error.message);
  
-     let user = new User({ googleID, email, username, nickname, sex, born, region, tags});
+     let user = new User({ googleID, email, username, nickname, sex, born, region, tags });
      user = await user.save();
      console.log('save to DB');
  })
@@ -28,18 +28,28 @@ router.get('/logout', (req, res) => {
     res.redirect('/');
 });
 
-router.patch('/', async (req, res) => {
+router.put('/update', async (req, res) => {
     console.log('update 요청 왔당');
-    const user = await User.find({ googleID: req.user.googleID });
-    // etc infos from req.body 이제 얘를 업데이트하고 signup 회원가입 버튼 누르면 signup.js의 버튼 이벤트가 발생한다.
-    user.username = req.body.username;
-    user.nickname = req.body.nickname;
-    user.born = req.body.born;
-    user.region = req.body.region;
-    user.tags = req.body.tags;
+    try {
+        let user = await User.findOne({ googleID: req.user.googleID });
+        console.log(req.body.user)
+        console.log(user.born)
+        user.username = req.body.user.username;
+        user.nickname = req.body.user.nickname;
+        user.born = req.body.user.born;
+        user.region = req.body.user.region;
+        user.tags = req.body.user.tags;
+        console.log(user)
+        user = await user.save();
+        
+        res.redirect('/');
+    } catch (error) {
+        console.error('err:::',error.message)
+    }
     
-    await user.save();
-    res.redirect('/');
+    
+    // etc infos from req.body 이제 얘를 업데이트하고 signup 회원가입 버튼 누르면 signup.js의 버튼 이벤트가 발생한다.
+    
 })
 
 

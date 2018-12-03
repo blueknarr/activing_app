@@ -60,9 +60,6 @@ class Tags extends React.Component {
     this.setState({ tags: newTags });
   }
 
-  componentDidUpdate() {
-    console.log(this.state);
-  }
 
   render() {
     const { tags, suggestions } = this.state;

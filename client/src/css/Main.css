@@ -1,11 +1,12 @@
 .body-full {
     position: relative;
     padding: 40px;
-    background-image: url('../img/main-body.jpg');
+    background-image: url("../img/main-body.jpg");
     background-size: cover;
+    height: auto;
+    min-height: 100% !important;
     z-index: 0;
-    height: 100vh;
-}
+  }
 
 .body-full:after{
     position: absolute;

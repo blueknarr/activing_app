@@ -34,11 +34,11 @@ app.use(express.json());
 app.use('/auth/google',auth);
 
 app.use('/api/content',content);
-app.use('/reg/content',content);
+// app.use('/reg/content',content);
 
-app.use('/api/users',users);
-app.use('/reg/user', users);
-app.use('/update/user', users);
+app.use('/api/users', users);
+// app.use('/reg/user', users);
+// app.use('/update/user', users);
 
 
 

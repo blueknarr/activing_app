@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import Tags from "./Tags";
 import { connect } from "react-redux";
-import { update } from "../actions/login";
+import { updateUser } from "../actions/login";
 import "../css/Signup.css";
-import auth from "../reducers/authReducer";
+// import auth from "../reducers/authReducer";
 const crypto = require("crypto");
 
 
 class Signup extends Component {
   state = {
+    email: '',
     username: "",
     nickname: "",
     born: 0,
@@ -16,6 +17,9 @@ class Signup extends Component {
     tag: []
   };
 
+  componentDidUpdate() {
+    console.log(this.state)
+  }
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
@@ -24,10 +28,53 @@ class Signup extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const { dispatch } = this.props;
-    dispatch(update(this.state));
+    dispatch(updateUser(this.state));
   };
 
+  setEmail () {
+    if(this.state.email === '' && this.props.auth ) {
+      this.setState({ email: this.props.auth.email })
+    }
+  }
+
+  setName () {
+    if(this.state.username === '' && this.props.auth ) {
+      this.setState({ username: this.props.auth.username })
+    }
+  }
+
+  setNick () {
+    if(this.state.nickname === '' && this.props.auth ) {
+      this.setState({ nickname: this.props.auth.nickname })
+    }
+  }
+
+  setSex () {
+    if(this.state.sex === '' && this.props.auth ) {
+      this.setState({ sex: this.props.auth.sex })
+    }
+  }
+
+  setBorn () {
+    if(this.state.born === '' && this.props.auth ) {
+      this.setState({ born: this.props.auth.born })
+    }
+  }
+
+  setRegion () {
+    if(this.state.region === '' && this.props.auth ) {
+      this.setState({ region: this.props.auth.region })
+    }
+  }
+
   render() {
+    this.setEmail();
+    this.setName();
+    this.setNick();
+    this.setSex();
+    this.setBorn();
+    this.setRegion();
+
     return (
       <div className="body-full">
         <div className="ui inverted segment signup column">
@@ -43,8 +90,7 @@ class Signup extends Component {
                   type="email"
                   onChange={this.handleChange}
                   name="email"
-                  placeholder={this.state.email}
-                  autoFocus={true}
+                  value={this.state.email}
                 />
               </div>
             </div>
@@ -191,26 +237,10 @@ class Signup extends Component {
               </p>
             </div>
 
-            <div className="ui segment">
-              <div className="field">
-                <div className="ui checkbox">
-                  <input
-                    type="checkbox"
-                    name="gift"
-                    tabIndex="0"
-                    className="hidden"
-                  />
-                  <label>
-                    서비스에 가입자의 개인 정보 활용을 동의합니다. (해당 서비스
-                    외에는 절대 활용되지 않습니다)
-                  </label>
-                </div>
-              </div>
-            </div>
             <button
               className="ui inverted purple button"
             >
-              회원가입
+              입력 완료
             </button>
           </form>
         </div>

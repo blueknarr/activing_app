@@ -1,21 +1,25 @@
 import React, { Component } from "react";
 import Tags from "./Tags";
 import { connect } from "react-redux";
-import { register } from "../actions/content.js";
-import "../css/Mypage.css";
+import { updateUser } from "../actions/login";
+import "../css/Signup.css";
+// import auth from "../reducers/authReducer";
+const crypto = require("crypto");
 
-class Mypage extends Component {
+
+class Signup extends Component {
   state = {
-    email: "gksduf06@gmail.com",
-    password: "",
-    username: "김한열",
-    nickname: "맥쥬",
-    sex: "m",
-    born: 1991,
-    region: "SL",
+    email: '',
+    username: "",
+    nickname: "",
+    born: 0,
+    region: "",
     tag: []
   };
 
+  componentDidUpdate() {
+    console.log(this.state)
+  }
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
@@ -24,67 +28,84 @@ class Mypage extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const { dispatch } = this.props;
-    dispatch(register(this.state));
+    dispatch(updateUser(this.state));
   };
 
+  setEmail () {
+    if(this.state.email === '' && this.props.auth ) {
+      this.setState({ email: this.props.auth.email })
+    }
+  }
+
+  setName () {
+    if(this.state.username === '' && this.props.auth ) {
+      this.setState({ username: this.props.auth.username })
+    }
+  }
+
+  setNick () {
+    if(this.state.nickname === '' && this.props.auth ) {
+      this.setState({ nickname: this.props.auth.nickname })
+    }
+  }
+
+  setSex () {
+    if(this.state.sex === '' && this.props.auth ) {
+      this.setState({ sex: this.props.auth.sex })
+    }
+  }
+
+  setBorn () {
+    if(this.state.born === '' && this.props.auth ) {
+      this.setState({ born: this.props.auth.born })
+    }
+  }
+
+  setRegion () {
+    if(this.state.region === '' && this.props.auth ) {
+      this.setState({ region: this.props.auth.region })
+    }
+  }
+
   render() {
+    this.setEmail();
+    this.setName();
+    this.setNick();
+    this.setSex();
+    this.setBorn();
+    this.setRegion();
+
     return (
       <div className="body-full">
         <div className="ui inverted segment signup column">
           <form name="form" className="ui form" onSubmit={this.handleSubmit}>
             <h4 className="ui dividing middle header">
-              <span id="signupact">A</span>CTIVIT'ING 정보 수정
+              <span id="signupact">A</span>CTIVIT'ING 정보 입력
             </h4>
-
             <div className="field form-group">
               <label>이메일</label>
-              <div className="field ui inverted transparent disabled input">
+              <div className="field ui inverted disabled transparent input">
                 <input
                   className="form-control"
                   type="email"
-                  value={this.state.email}
                   onChange={this.handleChange}
                   name="email"
-                  placeholder={this.state.email}
+                  value={this.state.email}
                 />
               </div>
             </div>
 
-            <div className="field form-group">
-              <label>비밀번호</label>
-              <div className="field ui inverted transparent input">
-                <input
-                  className="form-control"
-                  value={this.state.password}
-                  onChange={this.handleChange}
-                  type="password"
-                  name="password"
-                  placeholder="비밀번호를 입력하세요."
-                />
-              </div>
-            </div>
-
-            <div className="field">
-              <label>비밀번호 확인</label>
-              <div className="field ui inverted transparent input">
-                <input
-                  type="password"
-                  name="passwordConfirm"
-                  placeholder="비밀번호를 다시 입력하세요."
-                />
-              </div>
-            </div>
 
             <div className="field form-group">
               <label>이름</label>
-              <div className="field ui inverted transparent disabled input">
+              <div className="field ui inverted disabled transparent input">
                 <input
                   className="form-control"
                   value={this.state.username}
                   onChange={this.handleChange}
                   type="text"
                   name="username"
-                  placeholder={this.state.username}
+                  placeholder="이름을 입력하세요."
                 />
               </div>
             </div>
@@ -98,7 +119,56 @@ class Mypage extends Component {
                   onChange={this.handleChange}
                   type="text"
                   name="nickname"
+                  placeholder="닉네임으로 타인에게 노출됩니다."
                 />
+              </div>
+            </div>
+            <div className="two fields">
+              <div className="field form-group">
+                <label>성별</label>
+                <select
+                  className="ui fluid dropdown form-control"
+                  name="sex"
+                  value={this.state.sex}
+                  onChange={this.handleChange}
+                >
+                  <option value="">성별</option>
+                  <option value="male">남자</option>
+                  <option value="female">여자</option>
+                </select>
+              </div>
+            </div>
+            <div className="two fields">
+              <div className="field form-group">
+                <label>태어난 해</label>
+                <select
+                  className="ui fluid dropdown form-control"
+                  name="born"
+                  value={this.state.born}
+                  onChange={this.handleChange}
+                >
+                  <option value="">년도</option>
+                  <option value="1980">1980</option>
+                  <option value="1981">1981</option>
+                  <option value="1982">1982</option>
+                  <option value="1983">1983</option>
+                  <option value="1984">1984</option>
+                  <option value="1985">1985</option>
+                  <option value="1986">1986</option>
+                  <option value="1987">1987</option>
+                  <option value="1988">1988</option>
+                  <option value="1989">1989</option>
+                  <option value="1990">1990</option>
+                  <option value="1991">1991</option>
+                  <option value="1992">1992</option>
+                  <option value="1993">1993</option>
+                  <option value="1994">1994</option>
+                  <option value="1995">1995</option>
+                  <option value="1996">1996</option>
+                  <option value="1997">1997</option>
+                  <option value="1998">1998</option>
+                  <option value="1999">1999</option>
+                </select>
               </div>
             </div>
 
@@ -167,15 +237,27 @@ class Mypage extends Component {
               </p>
             </div>
 
-            <div
-              className="ui inverted purple button form-control"
-              tabIndex="0"
-              name="submit"
-              value={this.state}
-              onChange={this.handleSubmit}
-            >
-              정보 수정 완료
+            <div className="ui segment">
+              <div className="field">
+                <div className="ui checkbox">
+                  <input
+                    type="checkbox"
+                    name="gift"
+                    tabIndex="0"
+                    className="hidden"
+                  />
+                  <label>
+                    서비스에 가입자의 개인 정보 활용을 동의합니다. (해당 서비스
+                    외에는 절대 활용되지 않습니다)
+                  </label>
+                </div>
+              </div>
             </div>
+            <button
+              className="ui inverted purple button"
+            >
+              회원가입
+            </button>
           </form>
         </div>
       </div>
@@ -183,4 +265,8 @@ class Mypage extends Component {
   }
 }
 
-export default Mypage;
+const mapStateToProps = state => {
+  return { user: state.user, auth: state.auth };
+};
+
+export default connect(mapStateToProps)(Signup);
