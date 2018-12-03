@@ -7,10 +7,10 @@ function hash(password) {
 }
 
 const userSchema = new Schema({
-    email: {
+    googleID: {
         type: String
     },
-    password: {
+    email: {
         type: String
     },
     username: {
@@ -41,20 +41,19 @@ const User = mongoose.model('User',userSchema);
 // };
 
 //회원가입 새로운 user 객체 만들기
-User.register = function({ email, name, password, username, nickname, sex, born, region, tags}) {
-    const user = new this ({
-        email,
-        name,
-        password: hash(password),
-        username,
-        nickname,
-        sex,
-        born,
-        region,
-        tags
-    });
-    return user.save();
-};
+// User.register = function({ googleID, email, username, nickname, sex, born, region, tags}) {
+//     const user = new this ({
+//         googleID,
+//         email,
+//         username,
+//         nickname,
+//         sex,
+//         born,
+//         region,
+//         tags
+//     });
+//     return user.save();
+// };
 
 //함수로 전달받은 password의 해시값과, 데이터에 있는 해시값 비교
 User.validatePassword = function(password) {

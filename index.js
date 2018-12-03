@@ -32,11 +32,16 @@ app.use(passport.session());
 /* Routes */
 app.use(express.json());
 app.use('/auth/google',auth);
-app.use('/api/users',users);
 
 app.use('/api/content',content);
 app.use('/reg/content',content);
-app.use('/reg/user', users)
+
+app.use('/api/users',users);
+app.use('/reg/user', users);
+app.use('/update/user', users);
+
+
+
 if (app.get('env') === 'production') {
     // Express 가 production 어셋들을 제공한다. (main.js, main.css ...)
     app.use(express.static('client/build'));

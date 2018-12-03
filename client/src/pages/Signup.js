@@ -1,24 +1,16 @@
 import React, { Component } from "react";
 import Tags from "./Tags";
 import { connect } from "react-redux";
-import { register } from "../actions/user";
+import { update } from "../actions/login";
 import "../css/Signup.css";
+import auth from "../reducers/authReducer";
 const crypto = require("crypto");
 
-function hash(password) {
-  return crypto
-    .createHmac("sha256", process.env.SECRET_KEY)
-    .update(password)
-    .digest("hex");
-}
 
 class Signup extends Component {
   state = {
-    email: "",
-    password: "",
     username: "",
     nickname: "",
-    sex: "",
     born: 0,
     region: "",
     tag: []
@@ -32,57 +24,31 @@ class Signup extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const { dispatch } = this.props;
-    dispatch(register(this.state));
+    dispatch(update(this.state));
   };
 
   render() {
-    
     return (
       <div className="body-full">
         <div className="ui inverted segment signup column">
           <form name="form" className="ui form" onSubmit={this.handleSubmit}>
             <h4 className="ui dividing middle header">
-              <span id="signupact">A</span>CTIVIT'ING 회원 가입
+              <span id="signupact">A</span>CTIVIT'ING 정보 입력
             </h4>
             <div className="field form-group">
               <label>이메일</label>
-              <div className="field ui inverted transparent input">
+              <div className="field ui inverted disabled transparent input">
                 <input
                   className="form-control"
                   type="email"
-                  value={this.state.email}
                   onChange={this.handleChange}
                   name="email"
-                  placeholder="이메일을 입력하세요."
+                  placeholder={this.state.email}
                   autoFocus={true}
                 />
               </div>
             </div>
 
-            <div className="field form-group">
-              <label>비밀번호</label>
-              <div className="field ui inverted transparent input">
-                <input
-                  className="form-control"
-                  value={this.state.password}
-                  onChange={this.handleChange}
-                  type="password"
-                  name="password"
-                  placeholder="비밀번호를 입력하세요."
-                />
-              </div>
-            </div>
-
-            <div className="field">
-              <label>비밀번호 확인</label>
-              <div className="field ui inverted transparent input">
-                <input
-                  type="password"
-                  name="passwordConfirm"
-                  placeholder="비밀번호를 다시 입력하세요."
-                />
-              </div>
-            </div>
 
             <div className="field form-group">
               <label>이름</label>
@@ -121,8 +87,8 @@ class Signup extends Component {
                   onChange={this.handleChange}
                 >
                   <option value="">성별</option>
-                  <option value="m">남자</option>
-                  <option value="f">여자</option>
+                  <option value="male">남자</option>
+                  <option value="female">여자</option>
                 </select>
               </div>
             </div>
@@ -254,7 +220,7 @@ class Signup extends Component {
 }
 
 const mapStateToProps = state => {
-  return { user: state.user };
+  return { user: state.user, auth: state.auth };
 };
 
 export default connect(mapStateToProps)(Signup);

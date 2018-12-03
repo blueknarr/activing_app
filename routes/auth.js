@@ -13,6 +13,10 @@ router.get(
     '/callback', 
     passport.authenticate('google'), //can not get /auth/google/callback
     (req, res) => {
+        console.log('curentUSER', req.user);
+        if(!req.user.username) {
+            return res.redirect('/signup')
+        }
         res.redirect('/');
     }
 );

@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(actions);
+    console.log(this.props.auth);
     return (
       <BrowserRouter>
         <Fragment>
