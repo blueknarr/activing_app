@@ -7,37 +7,26 @@ function hash(password) {
 }
 
 const userSchema = new Schema({
-    googleID:{
-        type:String,
-        required: true
-    },
     email: {
-        type: String,
-        required: true
+        type: String
     },
     password: {
-        type: String,
-        required: true
+        type: String
     },
     username: {
-        type: String,
-        required: true
+        type: String
     },
     nickname: {
-        type: String,
-        required: true
+        type: String
     },
     sex: {
-        type: String,
-        required: true
+        type: String
     },
     born: {
-        type: Int16Array,
-        required: true
+        type: Number
     },
     region: {
-        type: String,
-        required: true
+        type: String
     },
     tags: {
         type: Array
@@ -46,15 +35,14 @@ const userSchema = new Schema({
 
 const User = mongoose.model('User',userSchema);
 
-//googleID를 기반으로 가입 여부 확인
-User.statics.findByGoogleID = function(googleID) {
-    return this.findOne({'profile.googleID': googleID}).exec();
-};
+// googleID를 기반으로 가입 여부 확인
+// User.findByEmail = function(email) {
+//     return this.findOne({'profile.googleID': googleID}).exec();
+// };
 
 //회원가입 새로운 user 객체 만들기
-User.statics.register = function({googleID, email, name, password, username, nickname, sex, born, region, tags}) {
+User.register = function({ email, name, password, username, nickname, sex, born, region, tags}) {
     const user = new this ({
-        googleID,
         email,
         name,
         password: hash(password),
@@ -69,7 +57,7 @@ User.statics.register = function({googleID, email, name, password, username, nic
 };
 
 //함수로 전달받은 password의 해시값과, 데이터에 있는 해시값 비교
-User.methods.validatePassword = function(password) {
+User.validatePassword = function(password) {
     const hashed = hash(password);
     return this.password === hashed;
 }

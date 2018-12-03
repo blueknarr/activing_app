@@ -10,6 +10,7 @@ const auth = require('./routes/auth');
 const app = express();
 
 require('./services/passport');
+
 /* connect MongoDB */
 const db = 'mongodb://activiting:test1234@ds147797.mlab.com:47797/activiting_app';
 const localDB = 'mongodb://localhost/test';
@@ -32,10 +33,10 @@ app.use(passport.session());
 app.use(express.json());
 app.use('/auth/google',auth);
 app.use('/api/users',users);
-app.use('/reg/content',content);
+
 app.use('/api/content',content);
-
-
+app.use('/reg/content',content);
+app.use('/reg/user', users)
 if (app.get('env') === 'production') {
     // Express 가 production 어셋들을 제공한다. (main.js, main.css ...)
     app.use(express.static('client/build'));

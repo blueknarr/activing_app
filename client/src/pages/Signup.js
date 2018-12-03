@@ -36,7 +36,7 @@ class Signup extends Component {
   };
 
   render() {
-    console.log(this.state);
+    
     return (
       <div className="body-full">
         <div className="ui inverted segment signup column">
