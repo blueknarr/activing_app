@@ -26,7 +26,7 @@ class Login extends Component {
       case null:
         return <span>Loading</span>;
       case false:
-        return <p>Activiting에 가입해보세요!</p>;
+        return <p><a className="ui inverted massive purple button" href="/auth/google">Activiting에 가입해보세요!</a></p>;
       default:
         return <p>{this.props.auth.username}님, 환영합니다. <br/> <a href="/api/users/logout"> Logout</a> </p>;
     }
@@ -39,7 +39,7 @@ class Login extends Component {
       <article className="body-full ui middle aligned center aligned grid">
         <div className="loginbody column inverted segment">
 
-            <ul className="right ui inverted purple massive button">
+            <ul className="loginbtn right ui">
               <li>{this.renderLogin()}</li>
             </ul>
 
