@@ -23,7 +23,7 @@ export default function ClubList(props) {
                 </div>
                 <div>
                 <h4 className="article-header">
-                <span>모임인원: </span>{content.people}
+                <span>장소: {content.place},</span><span> 모임인원: {content.people}</span>
                 </h4>
                 </div>
                 <div>
