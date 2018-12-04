@@ -8,6 +8,7 @@
     min-height: 100 !important;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    font-family: 'Sunflower', sans-serif;
 }
 
 .body-full:after{
@@ -28,9 +29,9 @@
 .ui.inverted.segment {
     font-family: 'Sunflower', sans-serif;
     position: relative;
-    margin-left: 7vw;
-    margin-right: 7vw;
-    
+    margin-left: 4vw;
+    margin-right: 4vw;
+    margin-top: -5vh;
     z-index: 1;
 }
 

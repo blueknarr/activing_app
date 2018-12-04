@@ -28,8 +28,8 @@ class Club extends Component {
             <div className="height">내 일정에 맞는 모임을 만들고 싶다면?</div>
 
             <div className="height">
-              <Link to="/createclub" className="btn btn-primary btn-block ui inverted purple button">
-                모임개설 바로가기
+              <Link to="/createclub" className="btn btn-primary btn-block ui google plus button">
+                모임 만들기
               </Link>
             </div>
           </div>

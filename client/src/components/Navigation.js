@@ -29,7 +29,7 @@ class Navigation extends Component {
             <Link to="/club">Club Schedule</Link>
           </li>
           <li>
-            <Link to="/match">Today's Match</Link>
+            <Link to="/todaymatch">Today's Match</Link>
           </li>
           <li>
             <Link to="/login">{this.renderLogin()}</Link>

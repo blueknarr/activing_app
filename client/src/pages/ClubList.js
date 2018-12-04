@@ -14,7 +14,7 @@ export default function ClubList(props) {
         <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12 root-frame">
           <Link to={`/clubdetails/${content.title}`} className="thumbnail article">
           {/* <a href="#" className="thumbnail article"> */}
-              <img src="../img/test.png" alt=""/>
+              <img src={`../img/test${content.people}.jpg`} alt=""/>
               <div className="caption">
                 <div>
                 <h3 className="article-header">

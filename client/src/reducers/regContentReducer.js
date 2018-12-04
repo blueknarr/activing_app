@@ -2,7 +2,6 @@
 import { REG_CONTENT } from '../actions/types';
 
 const regContent = (state=null, action) => {
-    console.log(state);
     switch(action.type){
         case REG_CONTENT:
             return action.payload.data || false;

@@ -1,33 +1,31 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { register } from '../actions/content.js'
+import { register } from "../actions/content.js";
 import Tags from "./Tags";
 import "../css/Signup.css";
 
 class CreateClub extends Component {
-  
-    state = {
-        title: "",
-        date: "",
-        cost: "",
-        people: "",
-        place: "",
-        details:"",
-        tag:[]
-    };
-  
-  handleChange = (event) => {
-    const { name, value } = event.target;
-    this.setState({ [name]:value });
-    
-  }
+  state = {
+    title: "",
+    date: "",
+    cost: "",
+    people: "",
+    place: "",
+    details: "",
+    tag: []
+  };
 
-  handleSubmit = (event) => {
+  handleChange = event => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  };
+
+  handleSubmit = event => {
     event.preventDefault();
     const { dispatch } = this.props;
     dispatch(register(this.state));
-  }
+  };
 
   render() {
     return (
@@ -127,11 +125,11 @@ class CreateClub extends Component {
               </div>
 
               <div className="form-group">모임개설</div>
-                
+
               <button className="ui inverted purple button">
-                  등록
-              </button> 
-              
+                <Link to="/club">등록</Link>
+              </button>
+
               <Link to="/club" className="ui inverted purple button">
                 취소
               </Link>
@@ -143,7 +141,7 @@ class CreateClub extends Component {
   }
 }
 const mapStateToProps = state => {
-    return { content: state.content };
-  };
-  
+  return { content: state.content };
+};
+
 export default connect(mapStateToProps)(CreateClub);

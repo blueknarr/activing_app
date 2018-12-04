@@ -16,28 +16,30 @@ function Main() {
           showThumbs={false}
           centerMode
           centerSlidePercentage={50}
+          autoPlay
         >
           <div>
-            <img src="img/test1.jpg" alt="test1" className="imgslides" />
+            <img src="img/test4.jpg" alt="test1" className="imgslides" />
           </div>
           <div>
-            <img src="img/test2.jpg" alt="test2" className="imgslides" />
+            <img src="img/test8.jpg" alt="test2" className="imgslides" />
           </div>
           <div>
-            <img src="img/test3.jpeg" alt="test3" className="imgslides" />
+            <img src="img/test4.png" alt="test5" className="imgslides" />
           </div>
           <div>
-            <img src="img/test4.png" alt="test4" className="imgslides" />
+            <img src="img/test6.jpg" alt="test3" className="imgslides" />
+          </div>
+          <div>
+            <img src="img/test3.jpeg" alt="test6" className="imgslides" />
           </div>
         </Carousel>
       </div>
 
-      <div className="main-body ui container middle">
-        <div className="col-sm-8 jumbotron">
-          <h3> Activit'ing 모임 현황</h3>
-          <h5> 오늘의 모임 수 : 170개 </h5>
-        </div>
-        <div className="col-sm-4">구독료</div>
+      <div className="story">
+        
+          <h3> "Activit'ing 모임을 통해 오늘 <span id="matchnum">170</span> 명의 사람이 즐거운 모임을 가졌습니다."</h3>
+        
       </div>
 
     </div>

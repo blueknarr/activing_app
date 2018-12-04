@@ -26,7 +26,7 @@ class Login extends Component {
       case null:
         return <span>Loading</span>;
       case false:
-        return <p><a className="ui inverted massive purple button" href="/auth/google">Activiting에 가입해보세요!</a></p>;
+        return <p><a className="ui massive purple button" href="/auth/google">Activiting에 가입해보세요!</a><br/> with <span id="googleBlue">G</span><span id="googleRed">o</span><span id="googleYellow">o</span><span id="googleBlue">g</span><span id="googleRed">l</span><span id="googleGreen">e</span></p>;
       default:
         return <p>{this.props.auth.username}님, 환영합니다. <br/> <a href="/api/users/logout"> Logout</a> </p>;
     }

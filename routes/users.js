@@ -39,10 +39,10 @@ router.put('/update', async (req, res) => {
         user.born = req.body.user.born;
         user.region = req.body.user.region;
         user.tags = req.body.user.tags;
-        console.log(user)
+        console.log(user);
         user = await user.save();
-        
-        res.redirect('/');
+        res.redirect(303, '/');
+        console.log(res)
     } catch (error) {
         console.error('err:::',error.message)
     }

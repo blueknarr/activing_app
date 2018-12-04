@@ -2,6 +2,7 @@ const passport = require('passport');
 const router = require('express').Router();
 const User = require('../models/users.js');
 
+
 //middleware 함수
 router.get(
     '/', //user req toss

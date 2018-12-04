@@ -3,8 +3,8 @@ import Tags from "./Tags";
 import { connect } from "react-redux";
 import { updateUser } from "../actions/login";
 import "../css/Signup.css";
+import {Link} from "react-router-dom";
 // import auth from "../reducers/authReducer";
-const crypto = require("crypto");
 
 
 class Signup extends Component {
@@ -240,7 +240,7 @@ class Signup extends Component {
             <button
               className="ui inverted purple button"
             >
-              입력 완료
+              <Link to="/">입력 완료</Link>
             </button>
           </form>
         </div>

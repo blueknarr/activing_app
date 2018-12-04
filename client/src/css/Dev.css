@@ -1,0 +1,9 @@
+.dev-outer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dev {
+    width: 50vw;
+}
