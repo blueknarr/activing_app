@@ -26,7 +26,7 @@
   }
 
 .ui.inverted.segment {
-    font-family: "Scada", sans-serif;
+    font-family: 'Sunflower', sans-serif;
     position: relative;
     margin-left: 7vw;
     margin-right: 7vw;
@@ -45,6 +45,7 @@
 .ui.form .field .ui.input input, .ui.form .fields .field .ui.input input {
     width: auto;
     color: white;
+    font-family: 'Sunflower', sans-serif;
 }
 
 #signupact {
